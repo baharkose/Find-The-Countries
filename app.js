@@ -39,22 +39,6 @@ const showCountry = (countryData) => {
         const {flags, name, region, capital, languages, borders , continents, currencies, maps, population} = country
 
 
-
-        searchInput.addEventListener('input', function(){
-            const userInput = searchInput.value.toLowerCase();
-            const suggestions = getFilteredSuggestions(userInput)
-        
-            displaySuggestions(suggestions)
-        })
-        
-        function getFilteredSuggestions(userInput) {
-            return country.filter(item => item.name.toLowerCase().includes(userInput))
-        }
-
-
-
-
-
         // console.log(flags, name, region, capital,);
         
         let countryName = name.common
