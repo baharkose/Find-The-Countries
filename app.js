@@ -3,20 +3,20 @@
 const searchInput = document.querySelector(".search-input")
 const searchBtn = document.querySelector(".search-button")
 const resultTable = document.querySelector(".result-table")
+const suggesstionList = document.getElementById("suggesstion-list")
 
+
+// FETCHING 
 
 const fetchCountry = async () => {
     try{
         const response = await fetch("https://restcountries.com/v3.1/all")
-
         if(!response.ok){
            throw new Error(`sth went wrong ${response.status}`) 
         }
-
         const data = await response.json()
         console.log(data);
         showCountry(data)
-
     }
     catch (err){
         console.log(err);
@@ -24,30 +24,27 @@ const fetchCountry = async () => {
 }
 
 
-
-// const countryName = ""
+// SHOW COUNTRIES
 
 const showCountry = (countryData) => {
-    // name, region, capital, flags, continents, regions, currencies, map
-
     countryData.forEach((country)=>{
-
-
-
-
 
         const {flags, name, region, capital, languages, borders , continents, currencies, maps, population} = country
 
-
         // console.log(flags, name, region, capital,);
-        
         let countryName = name.common.toLowerCase();
         console.log(countryName);
-        
+        // INPUT PROCESS
 
-        // searchInput.addEventListener("keydown", (e) =>{
-        //         searchEvent()
-        //     })
+        searchInput.addEventListener("input", function(event) {
+            //  Assign suggestions with filtered
+            const suggesstions = getFilteredSuggesstions(event.target.value, countryData)
+            // display filtred suggestions
+            displaySuggestions(suggesstions);
+
+        })
+            
+
         searchBtn.addEventListener("click", () =>{
 
             const searchInputA = searchInput.value.toLowerCase().trim();
@@ -102,9 +99,7 @@ const showCountry = (countryData) => {
                                 </td>
                             </tr>
 
-
                 `
-
 
             }
             // searchEvent(countryName)
@@ -122,28 +117,43 @@ const showCountry = (countryData) => {
 
 }
 
-// console.log(countryName);
+
 
 window.onload = () =>{
    fetchCountry() 
+   searchInput.focus()
 }
 
 
 
 
-// SEARCHING
 
-const searchEvent = (country) =>{
-    console.log("clicked");
-    console.log(name);
-    country.filter( name => {
-        
-        return searchInput.value === name
-    
+//  filtered suggessions
+
+function getFilteredSuggesstions(searchInput, countryData) {
+    return countryData.filter(country => country.name.common.toLowerCase().includes(searchInput));
+
+}
+
+
+// displaying
+
+function displaySuggestions(suggestions){
+    suggesstionList.innerHTML = "";
+    suggestions.forEach((suggestion) =>{
+        const li = document.createElement("li");
+        li.textContent = suggestion.name.common;
+        li.addEventListener("click",()=>{
+            searchInput.value = suggestion.name.common;
+            suggesstionList.innerHTML = "";
+        });
+        suggesstionList.appendChild(li);
     })
-        
-    
-} 
+}
+
+
+
+
 
 
 

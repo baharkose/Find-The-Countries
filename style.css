@@ -37,10 +37,22 @@ body {
     border-radius: 10px;
     border: none;
     font-size:1rem;
+    position: relative;
 }
+
+ul{
+    position:absolute;
+    color: white;
+    left: 0;
+}
+li{
+    list-style: none;
+}
+
 .search-button{
     height: 44px;
     border: none;
+    outline: none;
     border-radius: 10px;
     padding: 0 10px;
     font-size:1rem;
@@ -79,4 +91,5 @@ th:nth-child(1){
     overflow-wrap: break-word;
     word-wrap: break-word;
 }
+
 
