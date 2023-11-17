@@ -26,7 +26,7 @@ body {
 }
 
 .search-area{
-    margin-top: 5%;
+    margin-top: 3%;
     
 }
 
@@ -50,12 +50,33 @@ body {
 }
 
 .search-result{
- margin-top: 1.2rem;
+ margin-top: 0.5rem;
  /* width:250px !important; */
 }
 
 .table{
     background-color: rgba(0, 0, 0, 0.898);
-    width:340px !important;
+    min-width:350px;
+    max-width:350px !important;
     border-radius: 10px;
 }
+
+td, th {
+    max-width: 160px; /* veya istediğiniz bir değer */
+    min-width: 160px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    /* overflow: hidden; */
+    /* text-overflow: ellipsis; Taşan metni üç nokta (...) ile kırp */
+}
+
+th:nth-child(1){
+    text-align: center;
+}
+
+.brdr{
+    
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
