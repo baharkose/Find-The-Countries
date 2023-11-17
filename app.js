@@ -42,11 +42,8 @@ const showCountry = (countryData) => {
             // display filtred suggestions
             displaySuggestions(suggesstions);
 
-        })
-            
-
+        })   
         searchBtn.addEventListener("click", () =>{
-
             const searchInputA = searchInput.value.toLowerCase().trim();
 
             console.log("clicked");
@@ -80,9 +77,6 @@ const showCountry = (countryData) => {
                                 <th scope="row"> <i class="fa-solid fa-coins"></i> Currencies:</th>
                                 <td colspan="2">${Object.keys(currencies)}</td>
                             </tr>
-
-                        
-
                             <tr>
                                 <th scope="row"><i class="fa-solid fa-users-line"></i> Population:</th>
                                 <td colspan="2">${population}</td>
@@ -102,6 +96,7 @@ const showCountry = (countryData) => {
                 `
 
             }
+
             // searchEvent(countryName)
         })   
         
