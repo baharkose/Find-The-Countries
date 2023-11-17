@@ -41,18 +41,22 @@ const showCountry = (countryData) => {
 
         // console.log(flags, name, region, capital,);
         
-        let countryName = name.common
+        let countryName = name.common.toLowerCase();
         console.log(countryName);
+        
 
         // searchInput.addEventListener("keydown", (e) =>{
         //         searchEvent()
         //     })
         searchBtn.addEventListener("click", () =>{
+
+            const searchInputA = searchInput.value.toLowerCase().trim();
+
             console.log("clicked");
             console.log(searchInput.value);
             console.log(countryName);
 
-            if(searchInput.value == countryName){
+            if(searchInputA == countryName){
                         resultTable.innerHTML = `
                         <tr>
                         <th colspan="2" class=""resim>
