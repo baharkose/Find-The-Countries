@@ -132,6 +132,7 @@ function displaySuggestions(suggestions){
         li.addEventListener("click",()=>{
             searchInput.value = suggestion.name.common;
             suggesstionList.innerHTML = "";
+            searchInput.value = "";
         });
         suggesstionList.appendChild(li);
     })
