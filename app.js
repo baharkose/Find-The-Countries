@@ -30,10 +30,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
             resultTable.innerHTML += `
                      <tr>
-            <th colspan="2" class=""resim>
-                <img src="${flags.png}"/>
-            </th>
-            </tr>
+                <th colspan="2" class=""resim>
+                    <img src="${flags.png}"/>
+                </th>
+                </tr>
                 <tr>
                     <th colspan="2" class="h2 text-center">${name.common}</th>
                 </tr>
@@ -102,6 +102,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // displaying suggestions
     function displaySuggestions(suggestions) {
         console.log("Displaying suggestions:", suggestions);
+        suggestionList.innerHTML = "";
 
     if (suggestionList) {
         suggestionList.style.display = "block";
@@ -135,7 +136,13 @@ document.addEventListener("DOMContentLoaded", function () {
         // Assign suggestions with filtered
         let suggestions = getFilteredSuggestions(event.target.value, allCountries);
         // display filtered suggestions
-        displaySuggestions(suggestions);
+        if(event.target.value){
+           displaySuggestions(suggestions); 
+        }
+        else{
+            displaySuggestions(""); 
+        }
+        
     });
 
     fetchCountry();
