@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("Displaying suggestions:", suggestions);
 
     if (suggestionList) {
-        
+        suggestionList.style.display = "block";
         // Clear previous suggestions
         suggestionList.innerHTML = "";
 
