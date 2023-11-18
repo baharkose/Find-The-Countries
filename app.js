@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("Displaying suggestions:", suggestions);
 
     if (suggestionList) {
-        suggestionList.style.display="block"
+        
         // Clear previous suggestions
         suggestionList.innerHTML = "";
 
@@ -118,6 +118,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 searchInput.value = event.target.textContent;
                 suggestionList.style.display = "none";
                 showCountry(searchInput.value)
+                searchInput.value = "";
             });
 
             suggestionList.appendChild(li);

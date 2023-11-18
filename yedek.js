@@ -111,16 +111,12 @@ window.onload = () =>{
 }
 
 
-
-
-
 //  filtered suggessions
 
 function getFilteredSuggesstions(searchInput, countryData) {
     return countryData.filter(country => country.name.common.toLowerCase().includes(searchInput));
 
 }
-
 
 // displaying
 
