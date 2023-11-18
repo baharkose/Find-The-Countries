@@ -99,17 +99,8 @@ const showCountry = (countryData) => {
 
             // searchEvent(countryName)
         })   
-        
-
-
-       
     
     })
-
-   
-
-    
-
 }
 
 
